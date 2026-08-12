@@ -16,7 +16,7 @@ Use Plan mode, then implementation, to add three missing gallery modal behaviors
 
 ### 3. Apply Repository Standards ([03-apply-repository-standards.md](03-apply-repository-standards.md))
 
-Use `.github/copilot-instructions.md` plus task-specific context on a small app task and a hardening proposal, then run a standards compliance review confirming preserved routes, no new dependencies, responsive/dark-mode styling, and safe rendering of user-controlled content.
+Use `.github/copilot-instructions.md` plus task-specific context to add a visible live gallery-results count, request a hardening proposal, and run a standards compliance review covering routes, dependencies, responsive/dark-mode styling, and safe rendering.
 
 ### 4. Tests, Security Review, and Code Review ([04-tests-security-review.md](04-tests-security-review.md))
 

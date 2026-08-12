@@ -26,19 +26,26 @@ From `.github/copilot-instructions.md`:
 
 ### Step 1: Implement one small, focused app task
 
-Start a new chat. Attach only the files the task needs — [`wwwroot/index.html`](../wwwroot/index.html) and [`wwwroot/app.js`](../wwwroot/app.js).
+Start a new chat. Attach only the files the task needs — [`wwwroot/app.js`](../wwwroot/app.js) and [`wwwroot/styles.css`](../wwwroot/styles.css).
 
 ```text
-In the main navigation, add aria-current="page" to the link that matches the current route,
-alongside the existing "active" class toggle in wwwroot/app.js.
-Do not change the route list, page content, or styling. Do not add any dependency.
+On the Gallery page, add a clearly visible live results summary above the photo grid.
+It should display "Showing X of Y photos", use the existing photos array for the total,
+and update when search or tag filters change and when filters are cleared.
+Use an aria-live="polite" element and update its value with textContent.
+Add only the minimal CSS needed for the summary to work in light mode, dark mode,
+and responsive layouts. Do not change the photo data, routes, or filtering behavior.
+Do not add any dependency.
 ```
 
 Implement the change, then run the app and confirm:
 
+- `/gallery` initially displays **Showing 9 of 9 photos**.
+- Searching for `City` displays **Showing 1 of 9 photos**.
+- Clearing filters restores **Showing 9 of 9 photos**.
+- Selecting the `nature` tag displays **Showing 4 of 9 photos**.
 - The four routes (`/`, `/gallery`, `/upload`, `/admin`) all still navigate correctly.
-- The active nav link gets `aria-current="page"` only while its route is active.
-- Layout and dark mode appearance are unchanged.
+- The summary remains easy to read on a narrow viewport and in dark mode.
 
 ### Step 2: Request a hardening proposal (no implementation yet)
 
@@ -71,13 +78,16 @@ If either output fails a check, ask Copilot to revise it citing the specific ins
 
 ## Expected evidence / validation
 
-- The Step 1 diff is small, adds no dependency, and all four routes still work in the browser.
+- The Step 1 diff is limited to the gallery behavior and its minimal styling, adds no dependency, and all four routes still work in the browser.
+- The visible count changes from 9 to 1 or 4 during the search and tag checks, then returns to 9 when filters are cleared.
 - The Step 2 proposal names the actual constraints from `.github/copilot-instructions.md`, not generic security advice.
 - You completed the compliance table above for both outputs.
 
 ## ✅ Completion checklist
 
-- [ ] Implemented the nav accessibility task and verified all four routes still work
+- [ ] Implemented the visible live gallery count and verified its initial, search, tag, and reset states
+- [ ] Verified the summary in dark mode and at a narrow viewport
+- [ ] Verified all four routes still work
 - [ ] Requested a hardening proposal for the upload flow with the four required sections
 - [ ] Completed the standards compliance table for both outputs
 - [ ] Left `.github/copilot-instructions.md` untouched throughout
