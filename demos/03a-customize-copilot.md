@@ -203,4 +203,4 @@ Excellent work! You've now mastered the advanced customization features of GitHu
 
 ---
 
-👉 **[Start Copilot Spaces Demo](./copilot-spaces.md)**
+👉 **[Start Copilot Spaces Demo](./04-copilot-spaces.md)**

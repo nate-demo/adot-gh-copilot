@@ -4,7 +4,7 @@ This folder contains step-by-step demo guides for learning and practicing GitHub
 
 ## Demo Sequence & Descriptions
 
-### 1. Features Demo ([features-demo.md](features-demo.md))
+### 1. Features Demo ([01a-features-demo.md](01a-features-demo.md))
 **Overview:**  
 Start here to explore Copilot’s core features. Learn how to use chat commands, generate code, and review AI suggestions.  
 **Key Skills:**  
@@ -16,7 +16,7 @@ Start here to explore Copilot’s core features. Learn how to use chat commands,
 
 ---
 
-### 2. Engineering Practices Demo ([engineering-practices.md](engineering-practices.md))
+### 2. Engineering Practices Demo ([02a-engineering-practices.md](02a-engineering-practices.md))
 **Overview:**  
 Dive deeper into professional Copilot tools for teams. Inspect Copilot’s decision process, share chat conversations, and explore system prompts for consistent code generation.  
 **Key Skills:**  
@@ -27,7 +27,7 @@ Dive deeper into professional Copilot tools for teams. Inspect Copilot’s decis
 
 ---
 
-### 3. Customize Copilot Demo ([customize-copilot.md](customize-copilot.md))
+### 3. Customize Copilot Demo ([03a-customize-copilot.md](03a-customize-copilot.md))
 **Overview:**  
 Learn advanced customization techniques. Monitor premium usage, switch models, use prompt files, experiment with custom agent modes, and set up custom instructions for your team.  
 **Key Skills:**  
@@ -38,7 +38,7 @@ Learn advanced customization techniques. Monitor premium usage, switch models, u
 
 ---
 
-### 4. Copilot Spaces Demo ([copilot-spaces.md](copilot-spaces.md))
+### 4. Copilot Spaces Demo ([04-copilot-spaces.md](04-copilot-spaces.md))
 **Overview:**  
 Collaborate in dedicated Copilot Spaces. Create a Space, set goals, add context files, and work together to implement new features with AI assistance.  
 **Key Skills:**  
@@ -49,7 +49,7 @@ Collaborate in dedicated Copilot Spaces. Create a Space, set goals, add context 
 
 ---
 
-### 5. Cloud Agent Demo ([cloud-agent.md](cloud-agent.md))
+### 5. Cloud Agent Demo ([05a-cloud-agent.md](05a-cloud-agent.md))
 **Overview:**  
 Experience GitHub Copilot as a cloud agent to accelerate building and enhancing features in your Photo Gallery & Portfolio application.  
 **Key Skills:**  

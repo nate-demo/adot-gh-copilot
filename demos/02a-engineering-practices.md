@@ -125,4 +125,4 @@ GitHub.com provides additional tools for managing Copilot at the organizational 
 
 Congratulations! Second demo has been complete.
 
-👉 **[Start Customize Copilot Demo](./customize-copilot.md)**
+👉 **[Start Customize Copilot Demo](./03a-customize-copilot.md)**
