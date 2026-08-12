@@ -57,6 +57,8 @@ function homePage() {
 }
 
 function galleryPage() {
+  selectedTags.clear();
+  searchQuery = "";
   return `<div class="page">
     ${hero("Photo Gallery", "Browse and discover amazing photography.")}
     <section class="section container">
