@@ -47,16 +47,16 @@ For this demo, try the same coding task with different models and note the diffe
 2. Select the model you want to try out
 3. Add the following files to the GitHub Copilot Chat UI as related files. You can do so but selecting `Add Context` and typing in the name of each file. OR close out all tabs, then open these three files. Select `Add Context`, then `Open Editors` to grab all open files in your IDE. Either way will gather the below files.
 ```markdown
-- /src/app/gallery/page.tsx
-- /src/lib/mock-photo-data.ts
-- /src/components/GalleryGrid.tsx
+- /wwwroot/app.js
+- /wwwroot/index.html
+- /wwwroot/styles.css
 ```
 4. Stay on the last page: GalleryGrid and highlight lines 26 - 43
 5. Add in below prompt:
 
 Prompt
-```typescript
-// Ask each model: "Help me refactor this function for better performance, readability, and add TypeScript improvements"
+```javascript
+// Ask each model: "Help me refactor this function for better performance and readability without adding dependencies"
 ```
 
 Repeat steps 2-5 for two other models of your choosing.
@@ -100,7 +100,7 @@ Ask copilot to generate a new prompt file for unit tests. Use the following step
 ```markdown
 <!-- Add in related files to Ask mode -->
 Related files:
-- /src/components/ui/FeatureCard.tsx
+- /wwwroot/app.js
 - /.github/prompts/generate-new-ui.prompt.md
 - /.github/prompts/generate-mock-photo-data.prompt.md
 

@@ -10,34 +10,23 @@ tools: ['codebase', 'editFiles']
 Generate a new UI component for the Photo Gallery & Portfolio application following established patterns and conventions.
 
 ## Project Patterns to Follow
-- Use TypeScript with strict interfaces
-- Follow the SectionContainer/SectionTitle layout pattern
-- Implement responsive design with Tailwind CSS
+- Use semantic HTML and browser-native JavaScript
+- Reuse the page rendering and event-binding patterns in `wwwroot/app.js`
+- Implement responsive design with the existing CSS
 - Include dark mode support
-- Add Framer Motion animations where appropriate
-- Use Lucide React icons
+- Do not add npm or external NuGet packages
 - Follow accessibility best practices
 
 ## Component Requirements
-1. Create TypeScript interface for props
-2. Use proper Tailwind classes with dark mode variants
-3. Include JSDoc comments
-4. Export component and types
-5. Follow naming conventions (PascalCase for components)
-6. Implement responsive design patterns
+1. Create focused rendering and event-binding functions
+2. Reuse existing CSS classes and dark mode variables
+3. Use safe DOM APIs for user-controlled content
+4. Follow the existing naming conventions
+5. Implement responsive design patterns
 
 ## File Structure
-Place components in appropriate directories:
-- Layout components: `src/components/ui/layout/`
-- Feature components: `src/components/gallery/` or `src/components/upload/`
-- Generic UI: `src/components/ui/`
+- Markup and interactions: `wwwroot/app.js`
+- Shared document shell: `wwwroot/index.html`
+- Reusable styles: `wwwroot/styles.css`
 
-## Example Usage Pattern
-```tsx
-<SectionContainer>
-  <SectionTitle title="Component Name" />
-  {/* Component content */}
-</SectionContainer>
-```
-
-Create the component following these patterns and include usage examples.
+Create the component following these patterns and include a usage example.
