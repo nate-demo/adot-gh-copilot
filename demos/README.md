@@ -12,7 +12,7 @@ Use Copilot to map `PhotoGallery.csproj`, `Program.cs`, `wwwroot/index.html`, `w
 
 ### 2. Plan and Implement a Scoped Feature ([02-plan-scoped-feature.md](02-plan-scoped-feature.md))
 
-Use Plan mode, then implementation, on one bounded gallery modal UX task (preserve native Escape behavior, add backdrop close, and lock page scroll). Define done up front, use focused context, validate in the browser, and review the diff.
+Use Plan mode, then implementation, to add three missing gallery modal behaviors: Escape-to-close, backdrop-to-close, and page scroll locking. Define done up front, use focused context, validate in the browser, and review the diff.
 
 ### 3. Apply Repository Standards ([03-apply-repository-standards.md](03-apply-repository-standards.md))
 
