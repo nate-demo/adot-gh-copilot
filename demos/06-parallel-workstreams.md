@@ -1,4 +1,4 @@
-# 5. Parallel Workstreams with the GitHub Copilot App
+# 6. Parallel Workstreams with the GitHub Copilot App
 
 ## Outcome
 
