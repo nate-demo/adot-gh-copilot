@@ -185,4 +185,4 @@ Mark off each item as you complete it:
 
 Congratulations! You've completed your first GitHub Copilot demo.
 
-👉 **[Start Engineering Practices Demo](./engineering-practices.md)**
+👉 **[Start Engineering Practices Demo](./02a-engineering-practices.md)**

@@ -103,7 +103,7 @@ Run this second to show how context overload degrades results.
 - [Client application](../wwwroot/app.js)
 - [Application shell](../wwwroot/index.html)
 - [Application styles](../wwwroot/styles.css)
-- [Demo markdown file](../demos/features-demo.md)
+- [Demo markdown file](../demos/01a-features-demo.md)
 
 3. Keep prompt requirements broad and avoid explicit scope boundaries.
 
