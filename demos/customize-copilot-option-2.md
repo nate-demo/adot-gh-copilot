@@ -95,30 +95,30 @@ Include architecture decisions, guardrails, and a test matrix.
 
 **Source:** [Skills](https://awesome-copilot.github.com/skills/)
 
-Skill used in this challenge: **javascript-typescript-jest**
+Skill used in this challenge: **dotnet-unit-testing**
 
-Skill reference: [javascript-typescript-jest](https://github.com/github/awesome-copilot/tree/main/skills/javascript-typescript-jest)
+This repository includes a local testing skill tailored to the package-free application.
 
-1. Navigate to `.github/skills/javascript-typescript-jest/SKILL.md`
+1. Navigate to `.github/skills/dotnet-unit-testing/SKILL.md`
 2. Review the shared skill instructions for safety and fit with your repo conventions.
 3. Copy and run the following prompt:
 
 ```markdown
-/javascript-typescript-jest Design and generate a test suite for UploadZone behavior.
+/dotnet-unit-testing Design a test suite for the photo gallery health endpoint and route fallback behavior.
 Requirements:
-- include tests for drag-drop states, file-type validation, and preview rendering
-- include one accessibility-focused test (keyboard and aria behavior)
-- include setup notes for jest config if missing
+- include tests for the healthy response, known routes, and an unknown route
+- keep test dependencies isolated from PhotoGallery.csproj
+- identify any test framework package that would be required before adding it
 - output a test plan first, then test file scaffolding
 ```
 
 4. Then run a follow-up prompt:
 
 ```markdown
-/javascript-typescript-jest Now expand the suite with edge-case tests:
-- duplicate upload attempts
-- very large file rejection behavior
-- unsupported MIME type handling
+/dotnet-unit-testing Now expand the plan with edge-case tests:
+- direct navigation to client routes
+- missing static files
+- unsupported HTTP methods
 Then provide a "test maintenance checklist" for future UI changes.
 ```
 

@@ -20,8 +20,8 @@ More information on installation can be found in the [README](../README.md) file
 
 1. **Open the repository in your IDE** (e.g., VS Code)
 2. **Create new branch:** `git checkout -b USERNAME-copilot-exercises`
-2. **Install packages**: Run `npm install` in the terminal
-3. **Start the development server**: Run `npm run dev`
+2. **Build the app**: Run `dotnet build` in the terminal
+3. **Start the development server**: Run `dotnet run`
 4. **Open the project in your browser**: Go to [http://localhost:3000](http://localhost:3000) for a live preview
 
 Continue with the demo by following the steps below.
@@ -97,7 +97,7 @@ Tell me about the improvements that can be made in this repo.
 Keep the Copilot Chat session, we will be using it in Step 4 to plan and implement. For this step, utilize inline code completions directly in your editor to generate the footer code.
 
 ### Code Completions Instructions
-1. **Navigate to file:** Open [`src/app/layout.tsx`](src/app/layout.tsx)
+1. **Navigate to file:** Open [`wwwroot/index.html`](../wwwroot/index.html)
 2. **Find location:** Go to line 52 `{/* REPLACE THIS COMMENT */}`
 3. **Remove line 52 comment:** and replace it with the following comment:
 
@@ -122,7 +122,7 @@ If you are unsure which improvement to pick, we have provided a suggested implem
 
 <details>
 <summary>Implementation option</summary>
-Fix pagination in GalleryGrid.tsx: Change startIndex from 0 to (currentPage - 1) * photosPerPage so that page navigation actually shows different photos instead of repeating the same set.
+Add pagination to the gallery in wwwroot/app.js so each page shows a different set of photos. Keep the current UI and do not add dependencies.
 </details>
 <br>
 

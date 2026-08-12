@@ -8,7 +8,7 @@ Please generate additional mock photo data entries for the photo gallery applica
 
 ## Data Structure Reference
 Each photo entry should include:
-```typescript
+```javascript
 {
   id: string;          // Unique identifier
   url: string;         // Path to photo (format: '/placeholder-{number}.jpg')
@@ -32,7 +32,7 @@ Each photo entry should include:
 - Include 3-5 relevant tags per photo
 
 ## Example Entry
-```typescript
+```javascript
 {
   id: '10',
   url: '/placeholder-10.jpg',

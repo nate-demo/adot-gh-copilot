@@ -31,7 +31,7 @@ By the end of this demo, you will:
 
 5. Select `Instructions` and add the following prompt:
 ```markdown
-You are a security expert helping to analyze and improve the security posture of a Next.js 15 photo gallery application. Focus on:
+You are a security expert helping to analyze and improve the security posture of a minimal ASP.NET Core photo gallery application. Focus on:
 
 - File upload security vulnerabilities and mitigations
 - Input validation and sanitization
@@ -39,7 +39,7 @@ You are a security expert helping to analyze and improve the security posture of
 - XSS prevention in user-generated content
 - Secure image processing and storage
 - OWASP Top 10 web application security risks
-- Next.js specific security best practices
+- ASP.NET Core security best practices
 
 Provide specific code examples and security recommendations that follow industry standards and OWASP guidelines. Consider both client-side and server-side security measures.
 ```
@@ -50,10 +50,10 @@ Provide specific code examples and security recommendations that follow industry
 7. Select `Add sources` and select `Add files and repositories`
 8. Add the following files and press `save`
 ```markdown
-src/components/upload/UploadZone.tsx
-src/lib/mock-photo-data.ts
-src/app/layout.tsx
-next.config.ts
+Program.cs
+wwwroot/app.js
+wwwroot/index.html
+PhotoGallery.csproj
 ```
 9. Select `Add sources` and select `Link files, pull requests, and issues`
 10. Add issue link `https://github.com/ps-copilot-sandbox/copilot-intermediate-gallery-repo/issues/3` and press `save`
@@ -73,7 +73,7 @@ next.config.ts
 9. **A09 Security Logging and Monitoring Failures** - Failures in logging and monitoring coupled with missing or ineffective integration with incident response
 10. **A10 Server-Side Request Forgery** - SSRF flaws occur whenever a web application is fetching a remote resource without validating the user-supplied URL
 
-## Next.js Security Headers
+## ASP.NET Core Security Headers
 - Content Security Policy (CSP)
 - X-Frame-Options
 - X-Content-Type-Options
@@ -99,7 +99,7 @@ next.config.ts
 
 5. Select `Instructions` and add the following prompt:
 ```markdown
-You are a technical documentation specialist helping to create comprehensive documentation for a Next.js 15 photo gallery application. Focus on:
+You are a technical documentation specialist helping to create comprehensive documentation for a minimal ASP.NET Core photo gallery application. Focus on:
 
 - API documentation using OpenAPI/Swagger specifications
 - Component documentation with usage examples
@@ -120,9 +120,9 @@ Follow industry best practices for technical writing, API documentation standard
 ```markdown
 README.md
 COMPONENT_USAGE_GUIDE.md
-src/components/ui/index.ts
-src/app/page.tsx
-package.json
+Program.cs
+wwwroot/app.js
+PhotoGallery.csproj
 ```
 9. Select `Add sources` and select `Link files, pull requests, and issues`
 10. Add issue link `https://github.com/ps-copilot-sandbox/copilot-intermediate-gallery-repo/issues/4` and press `save`
@@ -183,7 +183,7 @@ I need help identifying and fixing security vulnerabilities in our photo gallery
 1. How to validate file types securely (not just by extension)
 2. Protection against malicious file uploads and XSS attacks
 3. Proper input sanitization for photo titles and tags
-4. Content Security Policy (CSP) headers for Next.js
+4. Content Security Policy (CSP) headers for ASP.NET Core
 5. Rate limiting strategies for upload endpoints
 
 Based on the OWASP Top 10 guidelines, what are the most critical security issues I should address first in this photo gallery application?
@@ -201,7 +201,7 @@ I need to create professional documentation for our photo gallery application. P
 
 1. Generate an OpenAPI 3.0 specification for our photo management API endpoints
 2. Create detailed component documentation with usage examples for our UI components
-3. Write an Architecture Decision Record (ADR) for choosing Next.js 15 with TypeScript
+3. Write an Architecture Decision Record (ADR) for choosing a package-free ASP.NET Core application
 4. Improve our README with installation, development, and deployment instructions
 5. Create a contributing guide for other developers
 

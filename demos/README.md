@@ -1,6 +1,6 @@
 # Demo Guides for Photo Gallery & Portfolio
 
-This folder contains step-by-step demo guides for learning and practicing GitHub Copilot features in the Photo Gallery & Portfolio application. Each demo builds on the previous one, helping you master Copilot’s capabilities in a real-world Next.js project.
+This folder contains step-by-step demo guides for learning and practicing GitHub Copilot features in the Photo Gallery & Portfolio application. Each demo builds on the previous one, helping you master Copilot’s capabilities in a minimal ASP.NET Core project.
 
 ## Demo Sequence & Descriptions
 

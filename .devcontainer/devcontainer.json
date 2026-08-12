@@ -1,29 +1,26 @@
 {
-  "name": "Next.js Photo Gallery - Intermediate Copilot",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "name": ".NET Photo Gallery - Intermediate Copilot",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
   "hostRequirements": {
     "cpus": 4
   },
-  "forwardPorts": [3000],
+  "forwardPorts": [5000],
   "portsAttributes": {
-    "3000": {
-      "label": "Next.js App",
+    "5000": {
+      "label": "Photo Gallery",
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "npm install && npm run dev",
+  "postCreateCommand": "dotnet restore",
   "customizations": {
     "vscode": {
       "extensions": [
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss"
+        "ms-dotnettools.csdevkit"
       ],
       "settings": {
-        "editor.formatOnSave": true,
-        "typescript.tsdk": "node_modules/typescript/lib"
+        "editor.formatOnSave": true
       }
     }
   }

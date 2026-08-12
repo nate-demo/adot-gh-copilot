@@ -100,9 +100,9 @@ Run this second to show how context overload degrades results.
 1. Continue in the same chat from Bad habit 1.
 2. Attach the target file plus several loosely related files. Suggested extras:
 
-- [Upload page](../src/app/upload/page.tsx)
-- [Gallery page](../src/app/gallery/page.tsx)
-- [GalleryGrid](../src/components/gallery/GalleryGrid.tsx)
+- [Client application](../wwwroot/app.js)
+- [Application shell](../wwwroot/index.html)
+- [Application styles](../wwwroot/styles.css)
 - [Demo markdown file](../demos/features-demo.md)
 
 3. Keep prompt requirements broad and avoid explicit scope boundaries.
@@ -132,14 +132,13 @@ Run this third. This is the recommended implementation workflow.
 1. Start a new chat because this is a new topic.
 2. Attach only relevant files:
 
-- [UploadZone](../src/components/upload/UploadZone.tsx)
-- [Upload page](../src/app/upload/page.tsx)
-- [mock-tag-data](../src/lib/mock-tag-data.ts) only if needed
+- [Client application](../wwwroot/app.js)
+- [Application styles](../wwwroot/styles.css) only if needed
 
 Suggested prompt:
 
 ```text
-Implement tag autocomplete for the Upload page tags input. For example, typing "w" should suggest "wedding" and "wildlife". Create a new file in the components/upload folder for the autocomplete input if needed.
+Implement tag autocomplete for the Upload page tags input in wwwroot/app.js. For example, typing "w" should suggest "wedding" and "wildlife". Keep the current styling and do not add dependencies.
 ```
 
 3. After implementation, check credits again and compare to the two bad-habit runs.

@@ -2,18 +2,13 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Start Development Server",
-			"type": "shell",
-			"command": "npm",
-			"args": [
-				"run",
-				"dev"
-			],
+			"label": "Run Photo Gallery",
+			"type": "process",
+			"command": "dotnet",
+			"args": ["run"],
 			"group": "build",
 			"isBackground": true,
-			"problemMatcher": [
-				"$tsc"
-			]
+			"problemMatcher": "$msCompile"
 		}
 	]
 }
