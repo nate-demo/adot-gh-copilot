@@ -63,25 +63,36 @@ Do not implement anything yet — this is a proposal only.
 
 Read the proposal and confirm it explicitly references the repository's constraints (no dependencies, preserved routes, responsive/dark mode, safe rendering) rather than generic advice.
 
-### Step 3: Standards compliance review
+### Step 3: Check both outputs against the repository standards
 
-For **both** the Step 1 change and the Step 2 proposal, check off the same four criteria:
+First, review the **gallery count change** from Step 1:
 
-| Standard | Step 1 change | Step 2 proposal |
-| --- | --- | --- |
-| Preserves `/`, `/gallery`, `/upload`, `/admin` routes | | |
-| Adds no NuGet or npm dependency | | |
-| Stays responsive and dark-mode compatible | | |
-| Safely handles user-controlled content (encodes/escapes, no raw HTML injection) | | |
+- Only `wwwroot/app.js` and `wwwroot/styles.css` changed.
+- No dependency was added and all four routes still work.
+- The count is updated with `textContent`, not raw HTML.
+- The summary is readable in light mode, dark mode, and a narrow viewport.
 
-If either output fails a check, ask Copilot to revise it citing the specific instruction it missed, rather than restarting the task from scratch.
+Then review the **hardening proposal** from Step 2:
+
+- It starts with the relevant constraints from `.github/copilot-instructions.md`.
+- Its proposed edits are small, dependency-free, and limited to the upload flow.
+- It explains how user-controlled content should be rendered safely.
+- It includes regression risks and specific validation steps.
+
+If an item is missing, ask Copilot to revise only that part:
+
+```text
+Revise your previous response to meet this repository instruction:
+<paste the missed instruction here>
+Keep the original task scope and leave the other sections unchanged.
+```
 
 ## Expected evidence / validation
 
 - The Step 1 diff is limited to the gallery behavior and its minimal styling, adds no dependency, and all four routes still work in the browser.
 - The visible count changes from 9 to 1 or 4 during the search and tag checks, then returns to 9 when filters are cleared.
 - The Step 2 proposal names the actual constraints from `.github/copilot-instructions.md`, not generic security advice.
-- You completed the compliance table above for both outputs.
+- You completed both Step 3 reviews and corrected any missed repository standard.
 
 ## ✅ Completion checklist
 
@@ -89,7 +100,7 @@ If either output fails a check, ask Copilot to revise it citing the specific ins
 - [ ] Verified the summary in dark mode and at a narrow viewport
 - [ ] Verified all four routes still work
 - [ ] Requested a hardening proposal for the upload flow with the four required sections
-- [ ] Completed the standards compliance table for both outputs
+- [ ] Reviewed the gallery count change and hardening proposal against the Step 3 checks
 - [ ] Left `.github/copilot-instructions.md` untouched throughout
 
 ## Next step
