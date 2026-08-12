@@ -2,7 +2,7 @@
 
 ## Outcome
 
-Use the repository's testing skill to design and inspect a draft first-test suite, perform an evidence-based security review of the current app, and run Copilot code review on the implementation work from Demos 2 and 3. You will finish with three quality artifacts you can evaluate separately: a test plan and draft scaffold, a security findings report, and code review comments (if the review finds any).
+Use the repository's testing skill to design and inspect a draft first-test suite, perform an evidence-based security review of the current app, and run Copilot code review on the implementation work from Demos 2 and 3. You will finish with a concise quality summary that records the verified result, evidence, and next action from each check.
 
 **Steps 1 and 2 are analysis-only.** They should not edit repository files. This module does not add a test project, test packages, or security fixes. Implementing any proposal is a separate, explicitly approved task outside this workshop.
 
@@ -92,15 +92,17 @@ Steps 1 and 2 should have left the workspace unchanged. Review the real app chan
 
 Focus on actionable regressions in the changed code: every modal close path should restore scrolling, and the gallery count should match the initial, search, tag, and reset states while using `textContent`. Copilot might return no comments; that is a valid result and should be recorded rather than replaced with invented findings.
 
-### Step 4: Sort findings by category
+### Step 4: Summarize the three quality checks
 
-Sort the useful output into three buckets. Write `None found` when a category has no validated finding.
+Bring the three activities together without mixing their results. Copy this table into your notes and complete one row for each check:
 
-| Category | What belongs here | Example from this module |
-| --- | --- | --- |
-| Test finding | A missing or incorrect test case in the draft plan | Unknown-route coverage must expect the app shell, not a 404 |
-| Security finding | A concrete trust-boundary or validation risk supported by code evidence | Titles and tags would become unsafe `innerHTML` inputs if their source became untrusted |
-| General review comment | An actionable correctness or maintainability issue in the Demo 2/3 diff that is not primarily a test or security concern | A modal close path fails to restore page scrolling |
+| Quality check | Verified result | Evidence | Next action |
+| --- | --- | --- | --- |
+| Test plan | What the draft covered correctly or missed | A route expectation or test-project detail from Step 1 | Revise the draft, or `No action` |
+| Security review | A risk or safe behavior you confirmed | The relevant function or line from `app.js` or `Program.cs` | Record future hardening, or `No action` |
+| Code review | An actionable comment you verified, or `None found` | The comment and changed code, or the completed review with no comments | Apply, discard, or `No action` |
+
+Keep each result to one sentence. Do not turn a safe behavior into a problem or invent a code review comment just to fill the table.
 
 ## Expected evidence / validation
 
@@ -108,7 +110,7 @@ Sort the useful output into three buckets. Write `None found` when a category ha
 - The test plan correctly describes the fallback behavior and identifies any test-host package and `Program` accessibility requirement.
 - The security report distinguishes trusted mock data and safe filename rendering from future risks.
 - Code review ran against the actual Demo 2/3 diff or a selected implementation, and you recorded whether it produced actionable comments.
-- Your three-way list contains only findings you verified against the code; empty categories say `None found`.
+- Your quality summary has one evidence-backed row for each check and uses `None found` when code review produced no actionable comment.
 - No test project, package, or security fix was added as part of this module.
 
 ## ✅ Completion checklist
@@ -117,7 +119,7 @@ Sort the useful output into three buckets. Write `None found` when a category ha
 - [ ] Confirmed the draft expects fallback routes to return the application shell
 - [ ] Verified the security report against `app.js` and `Program.cs`
 - [ ] Ran uncommitted-change review or selection review on the Demo 2/3 implementation
-- [ ] Sorted only validated findings into test, security, and general categories
+- [ ] Completed the three-row quality summary with a verified result, evidence, and next action
 - [ ] Confirmed Steps 1 and 2 made no repository changes
 
 ## Next step
