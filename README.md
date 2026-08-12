@@ -8,6 +8,8 @@ A minimal photo gallery workshop application built with ASP.NET Core on .NET 10.
 
 ## Run locally
 
+### .NET CLI
+
 ```bash
 dotnet run
 ```
@@ -17,13 +19,18 @@ Open [http://localhost:5000](http://localhost:5000).
 To verify the application without starting it:
 
 ```bash
-dotnet build
+dotnet build PhotoGallery.slnx
 ```
+
+### Visual Studio
+
+Open `PhotoGallery.slnx` in a Visual Studio version that supports .NET 10, then run the `PhotoGallery` project. The solution contains only the existing web project and adds no dependencies or Visual Studio-specific settings.
 
 ## Application structure
 
 ```text
 Program.cs                    Minimal ASP.NET Core application
+PhotoGallery.slnx             Visual Studio and .NET solution entry point
 PhotoGallery.csproj           .NET 10 project with no package references
 wwwroot/
 ├── index.html                Application shell
@@ -36,7 +43,7 @@ ASP.NET Core serves the static application and falls back to `index.html` for th
 
 ## Tests
 
-The repository intentionally contains no unit-test project so workshop participants can add one as a demonstration.
+The repository intentionally contains no unit-test project. Demo 4 plans and drafts the first suite without adding test packages or files.
 
 ## Demos
 

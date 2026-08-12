@@ -42,9 +42,11 @@ Change only the version reference, nothing else.
 
 ### Step 4: Restore and build
 
+From the repository root:
+
 ```bash
-dotnet restore
-dotnet build
+dotnet restore PhotoGallery.slnx
+dotnet build PhotoGallery.slnx
 ```
 
 Confirm both commands succeed with the .NET 10 SDK and produce no target-framework warnings.
@@ -101,7 +103,7 @@ Evaluate each idea against the repository's guidelines: no dependencies, preserv
 ## Expected evidence / validation
 
 - `PhotoGallery.csproj`, `.devcontainer/devcontainer.json`, `README.md`, and `.github/copilot-instructions.md` all consistently describe .NET 10.
-- `dotnet restore` and `dotnet build` both succeed.
+- `dotnet restore PhotoGallery.slnx` and `dotnet build PhotoGallery.slnx` both succeed.
 - All five smoke-tested endpoints (`/health`, `/`, `/gallery`, `/upload`, `/admin`) respond correctly.
 - You can name which .NET 10 breaking-change categories apply to this app and which don't, with reasoning.
 - No second sample app or duplicate project was created.
@@ -111,7 +113,7 @@ Evaluate each idea against the repository's guidelines: no dependencies, preserv
 - [ ] Confirmed `PhotoGallery.csproj` targets `net10.0` with no stray .NET 8/9 references
 - [ ] Confirmed the dev container image matches the .NET 10 SDK
 - [ ] Confirmed README and Copilot instructions consistently describe .NET 10
-- [ ] Ran `dotnet restore` and `dotnet build` successfully
+- [ ] Restored and built `PhotoGallery.slnx` successfully
 - [ ] Smoke-tested the health endpoint and all four application routes
 - [ ] Reviewed the official .NET 10 upgrade and compatibility-notes pages
 - [ ] Captured further modernization ideas without implementing them

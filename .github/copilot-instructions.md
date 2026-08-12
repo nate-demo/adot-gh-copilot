@@ -15,7 +15,7 @@ This is a minimal ASP.NET Core application targeting .NET 10. ASP.NET Core serve
 
 ```bash
 dotnet run
-dotnet build
+dotnet build PhotoGallery.slnx
 ```
 
 The application runs at `http://localhost:5000`.
