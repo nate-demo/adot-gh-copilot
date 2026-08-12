@@ -1,10 +1,10 @@
 # Demo Guides for Photo Gallery & Portfolio
 
-This folder contains step-by-step demo guides for learning and practicing GitHub Copilot in the Photo Gallery & Portfolio application. The workshop has two tiers: a **core curriculum** of five equal-weight modules that build on each other, and a set of shorter **optional extensions** you can pick up afterward.
+This folder contains step-by-step demo guides for learning and practicing GitHub Copilot in the Photo Gallery & Portfolio application. The workshop has two tiers: a **core curriculum** of six progressive modules that build on each other, and a set of shorter **optional extensions** you can pick up afterward.
 
 ## Core curriculum
 
-Work through these five modules in order. Each one has a single clear outcome, a definition of done or validation criteria, and a completion checklist.
+Work through these six modules in order. Each one has a single clear outcome, a definition of done or validation criteria, and a completion checklist.
 
 ### 1. Understand the Codebase ([01-understand-codebase.md](01-understand-codebase.md))
 
@@ -22,7 +22,11 @@ Use `.github/copilot-instructions.md` plus task-specific context to add a visibl
 
 Use the `.github/skills/dotnet-unit-testing/SKILL.md` skill to draft a first-test plan and scaffold without changing the repository, verify an evidence-based security review against `app.js` and `Program.cs`, and run uncommitted-change or selection review on the Demo 2/3 implementation. Capture the verified result, evidence, and next action from each quality check. An optional extension creates a read-only accessibility review agent that explicitly uses Claude Sonnet 4.6.
 
-### 5. Parallel Workstreams with the GitHub Copilot App ([05-parallel-workstreams.md](05-parallel-workstreams.md))
+### 5. End-to-End Workflow: Issue to Human Approval ([05-end-to-end-workflow.md](05-end-to-end-workflow.md))
+
+Create a bounded GitHub issue, delegate it to Copilot through a plan-first agent session, review the implementation and pull request, request Copilot code review, apply one verified finding, validate the result, and obtain independent human approval without merging.
+
+### 6. Parallel Workstreams with the GitHub Copilot App ([06-parallel-workstreams.md](06-parallel-workstreams.md))
 
 Use the GitHub Copilot desktop app to run three non-overlapping workstreams (test planning, security analysis, documentation/modernization analysis) in isolated sessions and worktrees, compare results, and integrate only reviewed, approved work.
 

@@ -192,4 +192,4 @@ You can keep the agent as a reusable repository customization or remove the file
 
 ## Next step
 
-👉 **[5. Parallel Workstreams with the GitHub Copilot App](05-parallel-workstreams.md)**
+👉 **[5. End-to-End Workflow: Issue to Human Approval](05-end-to-end-workflow.md)**

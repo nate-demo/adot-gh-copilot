@@ -1,6 +1,6 @@
 # Optional: Exposure Demos
 
-These are short, optional tours of three additional GitHub Copilot surfaces. Unlike the five core modules, these are **not** equal-weight — each section below is intentionally brief, meant to give you a first look rather than deep practice. Do them in any order, or skip any you don't have access to.
+These are short, optional tours of three additional GitHub Copilot surfaces. Unlike the six core modules, these are **not** equal-weight — each section below is intentionally brief, meant to give you a first look rather than deep practice. Do them in any order, or skip any you don't have access to.
 
 **Estimated time:** 5-10 minutes per section
 
@@ -29,6 +29,8 @@ See [Using GitHub Copilot Spaces](https://docs.github.com/en/copilot/how-tos/pro
 ## Cloud Agent
 
 The [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) can research a repository, plan, and open a pull request from a GitHub issue, working independently in the background.
+
+For the complete plan-first workflow, use [5. End-to-End Workflow](05-end-to-end-workflow.md). This optional tour intentionally uses the faster issue-assignment path, which may begin implementation and create a pull request immediately.
 
 1. In a repository you have write access to, open the **Issues** tab and create a small, scoped issue, for example:
 
