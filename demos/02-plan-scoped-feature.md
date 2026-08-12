@@ -13,13 +13,13 @@ Practice the Plan-then-implement workflow on one small, bounded UX task. You wil
 
 ## The task
 
-Improve the photo detail modal in [`wwwroot/app.js`](../wwwroot/app.js) (see `bindPhotoDialogs`, which opens a native `<dialog>`). The browser already closes a modal dialog when the user presses Escape, so treat that as behavior to preserve rather than code to reimplement.
+Add three missing behaviors to the photo detail modal in [`wwwroot/app.js`](../wwwroot/app.js): close it with Escape, close it by clicking the backdrop, and prevent page scrolling while it is open. These behaviors are the feature you will implement in this module.
 
 **Definition of done**
 
 After running the app locally, go to the gallery page and select "View Details" on a photo:
 
-- [ ] Pressing **Escape** continues to close the modal through the native dialog behavior.
+- [ ] Pressing **Escape** closes the modal.
 - [ ] Clicking outside the modal content (the backdrop) closes the modal.
 - [ ] The page cannot scroll while the modal is open.
 - [ ] No other UI text, layout, or styling changed.
@@ -38,10 +38,10 @@ Avoid attaching `index.html`, `styles.css`, or unrelated demo files — the task
 ### Step 2: Submit the scoped prompt
 
 ```text
-In wwwroot/app.js, improve the photo detail modal UX:
-1) preserve the native Escape-to-close behavior,
-2) close on backdrop click,
-3) disable page scroll while the modal is open and restore it whenever the dialog closes.
+In wwwroot/app.js, add these missing photo detail modal behaviors:
+1) explicitly close the modal when Escape is pressed,
+2) close the modal when the backdrop is clicked,
+3) disable page scroll while the modal is open and restore it whenever the modal closes.
 Keep the current UI, text, and styling unchanged. Do not add any dependency.
 Propose a plan before making changes.
 ```
@@ -51,7 +51,7 @@ Propose a plan before making changes.
 Confirm the plan:
 
 - Only touches `wwwroot/app.js` (or explicitly justifies any other file).
-- Lists concrete edits to `bindPhotoDialogs` (or wherever it proposes the change), including cleanup after every close path, rather than vague steps.
+- Lists concrete edits for Escape handling, backdrop handling, and shared cleanup after every close path rather than vague steps.
 - Does not introduce a package, script tag, or external library.
 
 Approve the plan once it matches the definition of done above. If it proposes something broader (for example, restyling the modal), send feedback narrowing the scope before approving.
@@ -65,7 +65,7 @@ Let the agent implement the approved plan. Keep an eye on which lines change —
 1. Run `dotnet run` if it isn't already running.
 2. Open `http://localhost:5000/gallery`.
 3. Click "View Details" on any photo.
-4. Verify each item in the definition of done: native Escape behavior, backdrop click, scroll lock, and scroll restoration.
+4. Verify each new behavior: Escape closes the modal, backdrop click closes it, scrolling is locked while open, and scrolling is restored after every close path.
 5. Confirm the modal's title, tags, and likes text still render exactly as before.
 
 ### Step 6: Review the diff

@@ -45,7 +45,7 @@ Workshop guides are available in the [`demos`](demos/) directory. The five-part 
 1. [Understanding an unfamiliar .NET codebase](demos/01-understand-codebase.md)
 2. [Planning and implementing a scoped feature](demos/02-plan-scoped-feature.md)
 3. [Applying repository instructions and team standards](demos/03-apply-repository-standards.md)
-4. [Generating tests, finding security issues, and reviewing changes](demos/04-tests-security-review.md)
+4. [Drafting tests, identifying security risks, and reviewing changes](demos/04-tests-security-review.md)
 5. [Running parallel workstreams in the GitHub Copilot desktop app](demos/05-parallel-workstreams.md)
 
 Short [exposure exercises](demos/optional-exposure-demos.md) for Copilot Spaces, Cloud Agent, and Copilot CLI, plus a [.NET modernization extension](demos/optional-modernization-extension.md), are available as optional follow-up material.
