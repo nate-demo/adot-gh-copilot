@@ -2,7 +2,7 @@
 
 ## Project overview
 
-This is a minimal ASP.NET Core application targeting .NET 8. ASP.NET Core serves a browser-native HTML, CSS, and JavaScript photo gallery.
+This is a minimal ASP.NET Core application targeting .NET 10. ASP.NET Core serves a browser-native HTML, CSS, and JavaScript photo gallery.
 
 ## Architecture
 
