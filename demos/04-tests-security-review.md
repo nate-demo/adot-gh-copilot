@@ -122,6 +122,74 @@ Keep each result to one sentence. Do not turn a safe behavior into a problem or 
 - [ ] Completed the three-row quality summary with a verified result, evidence, and next action
 - [ ] Confirmed Steps 1 and 2 made no repository changes
 
+## Optional extension: Create an accessibility review agent
+
+This extension demonstrates how a repository custom agent can combine focused instructions, restricted tools, and a specific model. It is optional and does not change the required checklist above.
+
+### 1. Create a workspace agent
+
+1. Open the Command Palette and run **Chat: New Custom Agent**.
+2. Choose **Workspace** so the agent is available to this repository.
+3. Name the file `accessibility-review.agent.md`. VS Code creates it in `.github/agents/`.
+4. Replace the generated content with this compact, read-only agent:
+
+````markdown
+---
+name: Accessibility Reviewer
+description: Reviews the photo gallery for keyboard, focus, semantics, and live-region issues without editing files.
+target: vscode
+model: Claude Sonnet 4.6
+tools: ['read', 'search']
+---
+
+# Accessibility review instructions
+
+Review the supplied photo-gallery files for evidence-backed accessibility issues.
+Report findings only. Do not edit files.
+
+## Review focus
+
+- Keyboard operation and visible focus
+- Dialog naming, Escape behavior, focus movement, and focus restoration
+- Semantic landmarks, headings, labels, and accessible names
+- Live announcements for gallery filtering and other dynamic updates
+- Code behavior that still requires browser or assistive-technology validation
+
+## Output
+
+For each finding, provide severity, exact code evidence, user impact, a minimal
+recommendation, and a verification step. Separate confirmed code findings from
+runtime checks that have not yet been performed.
+````
+
+The `tools` list keeps this agent read-only. The `model` field makes **Claude Sonnet 4.6** the model for this agent instead of inheriting the model currently selected in Chat.
+
+> If Claude Sonnet 4.6 is not available in your organization's model picker, replace the value with the exact name of an available model before running the agent. Model availability can vary by account and organization policy.
+
+### 2. Run the specialized review
+
+1. Select **Accessibility Reviewer** from the Chat agent picker.
+2. Attach [`wwwroot/index.html`](../wwwroot/index.html), [`wwwroot/app.js`](../wwwroot/app.js), and [`wwwroot/styles.css`](../wwwroot/styles.css).
+3. Submit:
+
+```text
+Review these files for WCAG 2.2 accessibility risks introduced or exposed by the
+modal behavior and live gallery count. Prioritize keyboard access, focus management,
+accessible names, and live announcements. Report findings only and distinguish
+code-backed issues from checks that require runtime testing.
+```
+
+### 3. Check the result
+
+Confirm the agent:
+
+- Cites exact elements, selectors, or functions instead of returning a generic checklist.
+- Does not claim that static inspection proves keyboard, screen-reader, contrast, or focus behavior at runtime.
+- Recommends browser checks for anything that cannot be established from the code.
+- Makes no application edits; this extension itself adds only `.github/agents/accessibility-review.agent.md`.
+
+You can keep the agent as a reusable repository customization or remove the file after the exercise.
+
 ## Next step
 
 👉 **[5. Parallel Workstreams with the GitHub Copilot App](05-parallel-workstreams.md)**
