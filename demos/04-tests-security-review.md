@@ -2,98 +2,123 @@
 
 ## Outcome
 
-Combine three related quality practices in one module: generate a test plan and scaffold with a reusable skill while keeping test dependencies isolated, get a focused security review of upload and rendering behavior, and use Copilot's Source Control / inline review on whatever changes you accepted. You will finish able to tell test findings, security findings, and general review comments apart.
+Use the repository's testing skill to design and inspect a draft first-test suite, perform an evidence-based security review of the current app, and run Copilot code review on the implementation work from Demos 2 and 3. You will finish with three quality artifacts you can evaluate separately: a test plan and draft scaffold, a security findings report, and code review comments (if the review finds any).
 
-**This module does not add a test project to the repository.** Any test scaffold you generate stays as a plan or draft output for you to evaluate — implementing it for real is a separate, explicitly-approved step outside this workshop.
+**Steps 1 and 2 are analysis-only.** They should not edit repository files. This module does not add a test project, test packages, or security fixes. Implementing any proposal is a separate, explicitly approved task outside this workshop.
 
 ## Prerequisites
 
-- Completed (or read) [3. Apply Repository Standards](03-apply-repository-standards.md).
+- Completed [2. Plan and Implement a Scoped Feature](02-plan-scoped-feature.md) and the gallery-count implementation in [3. Apply Repository Standards](03-apply-repository-standards.md) in this workspace.
 - Review [`.github/skills/dotnet-unit-testing/SKILL.md`](../.github/skills/dotnet-unit-testing/SKILL.md) before starting.
 
 **Estimated time:** 20-25 minutes
 
 ## Steps
 
-### Step 1: Generate a test plan and scaffold with the skill
+### Step 1: Draft the repository's first endpoint tests
 
-The `dotnet-unit-testing` skill exists specifically to plan tests without touching `PhotoGallery.csproj`. Use it:
+In Copilot Chat Agent mode, type `/dotnet-unit-testing` and select the skill from the menu. If it is not listed, attach [`.github/skills/dotnet-unit-testing/SKILL.md`](../.github/skills/dotnet-unit-testing/SKILL.md) and start the prompt with `Follow the attached dotnet-unit-testing skill`.
 
 ```text
-/dotnet-unit-testing Design a test suite for the photo gallery health endpoint and route
-fallback behavior in Program.cs.
-Requirements:
-- include tests for the healthy response, known routes, and an unknown route
-- keep test dependencies isolated from PhotoGallery.csproj
-- identify any test framework package that would be required before adding it
-- output a test plan first, then test file scaffolding
+Design the repository's first ASP.NET Core endpoint tests for Program.cs.
+This is a draft-only exercise: do not edit files, run commands, or add packages.
+
+First provide a concise test plan, then show the proposed project and test-file scaffold.
+The draft should verify:
+- GET /health returns 200 and the expected healthy JSON response
+- GET / returns the application shell
+- GET /gallery, /upload, and /admin return that same shell through fallback routing
+- an unknown path also returns the shell, with an explanation of why this app does not
+  return a conventional 404 for that request
+
+Follow the dotnet-unit-testing skill: keep all test dependencies in a separate test
+project, identify every required test package, and call out any production-code test
+seam that WebApplicationFactory would require without applying it.
 ```
 
-Confirm the response:
+Inspect the response rather than accepting edits. It should:
 
-- States a test project would be separate from `PhotoGallery.csproj`.
-- Names the test framework package(s) it would need, without adding them to the app project.
-- Does not modify `PhotoGallery.csproj` or add a `.csproj` file for you automatically.
+- Recognize that `/gallery`, `/upload`, `/admin`, and unknown paths are handled by `MapFallbackToFile("index.html")`, not by separate server endpoints.
+- Propose a separate test project and name its test framework, test SDK, and ASP.NET Core test-host dependencies.
+- Call out the `Program` accessibility seam commonly needed by `WebApplicationFactory<Program>` rather than silently changing `Program.cs`.
+- Keep the plan and scaffold in chat output only. No `.csproj`, test file, or package should appear in the workspace.
 
 ### Step 2: Request a focused security review
 
-Start a new chat for this new topic. Ask Copilot to review the client-side upload and rendering behavior in [`wwwroot/app.js`](../wwwroot/app.js):
+Start a new chat for this new topic. Attach [`wwwroot/app.js`](../wwwroot/app.js) and [`Program.cs`](../Program.cs), then use this prompt:
 
 ```text
-Review the security posture of bindUpload (client-side file handling) and the innerHTML
-rendering in photoCard and bindPhotoDialogs in wwwroot/app.js.
-Focus on:
-1) how user-controlled values (title, tags) reach innerHTML,
-2) whether file type/size validation is enforced anywhere beyond the client,
-3) concrete, minimal mitigations that keep the app dependency-free.
-Do not implement changes yet — report findings only.
+Review the current security posture of bindUpload, photoCard, and bindPhotoDialogs in
+wwwroot/app.js, using Program.cs to verify the server boundary.
+
+For each finding, report the exact code evidence, current exploitability in this mock-data
+app, and a minimal dependency-free mitigation. Check:
+1) where photo titles and tags reach innerHTML,
+2) what the file picker and showFiles actually validate,
+3) whether file size is limited,
+4) whether file bytes are read or sent to any server endpoint, and
+5) whether selected filenames are rendered safely.
+
+Do not implement changes. Distinguish current behavior from risks that would exist only
+after real user data or a server-side upload endpoint is introduced.
 ```
 
-Read the findings. This mock-data application does not yet accept arbitrary user input from a network boundary, so expect the review to flag things like: reliance on client-only MIME-type checks, direct `innerHTML` interpolation of `photo.title` and `photo.tags` (safe only because the current data is trusted mock data), and the absence of a server-side upload endpoint to validate against.
+Check the report against the code. An accurate review should explain all of these points:
 
-### Step 3: Review any accepted changes
+- `photoCard` and `bindPhotoDialogs` interpolate titles and tags into `innerHTML`. The values currently come from the trusted, in-file `photos` array, so this is a future trust-boundary risk rather than a currently exposed network-input exploit.
+- `accept="image/*"` is a picker hint, and `showFiles` trusts the browser-provided `file.type`. There is no file-size limit.
+- Selected filenames are rendered with `textContent`, which is the safe behavior the review should preserve.
+- The demo never reads or transmits file bytes: form submission only shows an alert, and `Program.cs` defines no upload endpoint. Server-side file validation is therefore a requirement for a future real upload feature, not protection that exists in this mock flow.
 
-If you accepted any edits from Steps 1 or 2 (for example, a scaffold file), review them with Copilot's built-in review tools:
+### Step 3: Review the implementation from Demos 2 and 3
 
-**Inline review**
+Steps 1 and 2 should have left the workspace unchanged. Review the real app changes you made earlier: the modal behavior from Demo 2 and the live gallery count from Demo 3.
 
-1. Select the generated code.
-2. Right-click → **Copilot → Review**.
-3. Process each suggestion: accept or discard.
+**If those changes are still uncommitted:**
 
-**Source Control review**
+1. Open **Source Control** in the Activity Bar.
+2. Hover over **CHANGES**, then select **Copilot Code Review - Uncommitted Changes**.
 
-1. Open the Source Control panel in the Activity Bar.
-2. Hover over **CHANGES**, then select **Code Review – Unstaged Changes**.
+   ![Copilot Code Review button](images/code-review.png)
 
-   ![Code review button](images/code-review.png)
+3. Read any comments inline and in the **Problems** tab.
+4. Verify each comment against the Demo 2 and Demo 3 definitions of done before applying or discarding its suggestion.
 
-3. Read any inline comments in the affected file(s) and in the **Problems** tab.
+**If the changes are already committed or the Source Control review button is unavailable:**
+
+1. Select the modal or gallery-count implementation in `wwwroot/app.js`.
+2. Right-click and choose **Generate Code > Review**.
+3. Read the resulting comments inline and in the **Comments** panel.
+
+Focus on actionable regressions in the changed code: every modal close path should restore scrolling, and the gallery count should match the initial, search, tag, and reset states while using `textContent`. Copilot might return no comments; that is a valid result and should be recorded rather than replaced with invented findings.
 
 ### Step 4: Sort findings by category
 
-Before closing this module, sort everything Copilot surfaced into three buckets so nothing gets lost or conflated:
+Sort the useful output into three buckets. Write `None found` when a category has no validated finding.
 
-| Category | Example from this module |
-| --- | --- |
-| Test finding | Missing coverage for an unknown-route fallback response |
-| Security finding | `innerHTML` used for values that would be unsafe if untrusted |
-| General review comment | Naming, duplication, or style suggestions unrelated to correctness or safety |
+| Category | What belongs here | Example from this module |
+| --- | --- | --- |
+| Test finding | A missing or incorrect test case in the draft plan | Unknown-route coverage must expect the app shell, not a 404 |
+| Security finding | A concrete trust-boundary or validation risk supported by code evidence | Titles and tags would become unsafe `innerHTML` inputs if their source became untrusted |
+| General review comment | An actionable correctness or maintainability issue in the Demo 2/3 diff that is not primarily a test or security concern | A modal close path fails to restore page scrolling |
 
 ## Expected evidence / validation
 
-- The test plan explicitly isolates any new test dependency from `PhotoGallery.csproj`.
-- The security review references specific functions (`bindUpload`, `photoCard`, `bindPhotoDialogs`) rather than generic advice.
-- You produced a three-way sorted list (test / security / general) from the session's output.
-- No test project was actually added to the repository as part of this module.
+- The test plan and draft scaffold remain in chat and isolate all test dependencies from `PhotoGallery.csproj`.
+- The test plan correctly describes the fallback behavior and identifies any test-host package and `Program` accessibility requirement.
+- The security report distinguishes trusted mock data and safe filename rendering from future risks.
+- Code review ran against the actual Demo 2/3 diff or a selected implementation, and you recorded whether it produced actionable comments.
+- Your three-way list contains only findings you verified against the code; empty categories say `None found`.
+- No test project, package, or security fix was added as part of this module.
 
 ## ✅ Completion checklist
 
-- [ ] Generated a test plan and scaffold via `/dotnet-unit-testing` with isolated dependencies
-- [ ] Requested and read a focused security review of upload and rendering behavior
-- [ ] Ran inline review and/or Source Control review on any accepted changes
-- [ ] Sorted findings into test, security, and general review categories
-- [ ] Confirmed no test project was added to the repository
+- [ ] Drafted and inspected a first-test plan and scaffold with isolated dependencies
+- [ ] Confirmed the draft expects fallback routes to return the application shell
+- [ ] Verified the security report against `app.js` and `Program.cs`
+- [ ] Ran uncommitted-change review or selection review on the Demo 2/3 implementation
+- [ ] Sorted only validated findings into test, security, and general categories
+- [ ] Confirmed Steps 1 and 2 made no repository changes
 
 ## Next step
 

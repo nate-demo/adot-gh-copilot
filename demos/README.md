@@ -20,7 +20,7 @@ Use `.github/copilot-instructions.md` plus task-specific context to add a visibl
 
 ### 4. Tests, Security Review, and Code Review ([04-tests-security-review.md](04-tests-security-review.md))
 
-Use the `.github/skills/dotnet-unit-testing/SKILL.md` skill to generate a test plan and scaffold with isolated dependencies, request a focused security review of upload and rendering behavior, and use Source Control/inline review on any accepted changes. Sort findings into test, security, and general review categories.
+Use the `.github/skills/dotnet-unit-testing/SKILL.md` skill to draft a first-test plan and scaffold without changing the repository, verify an evidence-based security review against `app.js` and `Program.cs`, and run uncommitted-change or selection review on the Demo 2/3 implementation. Sort only validated findings into test, security, and general review categories.
 
 ### 5. Parallel Workstreams with the GitHub Copilot App ([05-parallel-workstreams.md](05-parallel-workstreams.md))
 
